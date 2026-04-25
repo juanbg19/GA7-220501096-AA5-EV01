@@ -12,7 +12,7 @@ const usuarios = [{
 ];
 
 async function login(req, res) {
-    console.log(req.body);
+    console.log(req.body.user);
     const user = req.body.user;
     const password = req.body.password;
     if (!user || !password) {
@@ -44,7 +44,7 @@ async function login(req, res) {
 
 
 async function registrar(req, res) {
-    console.log(req.body);
+    console.log(req.body.user);
     const user = req.body.user;
     const email = req.body.email;
     const password = req.body.password;
@@ -61,7 +61,7 @@ async function registrar(req, res) {
         user, email, password: hashedPassword
     };
     usuarios.push(nuevoUsuario);
-    console.log(usuarios);
+    console.log(usuarios.map(u => ({ user: u.user, email: u.email})));
     return res.status(201).send({ status: 'ok', message: 'Usuario registrado', redirect: true });
 }
 

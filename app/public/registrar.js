@@ -14,7 +14,7 @@ document.getElementById("registro-form").addEventListener("submit", async (e) =>
   });
 
   if (!res.ok) {
-    mensajeError.classList.toggle("escondido", false);
+    mensajeError.classList.toggle("error", false);
     return;
   }
 
