@@ -2,21 +2,25 @@ const mensajeError = document.querySelector('.error');
 
 document.getElementById("login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const user = e.target.elements.user.value;
-  const password = e.target.elements.password.value;
+
+  const usuario = e.target.elements.usuario.value;
+  const contraseña = e.target.elements.contraseña.value;
+
   const res = await fetch("http://localhost:4000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user, password })
-    });
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ usuario, contraseña })
+  });
 
-    if (!res.ok) {
-      mensajeError.classList.toggle("error", false);
-      return;
-    }
+  const resJson = await res.json();
 
-    const resJson = await res.json();
-    if (resJson.redirect) {
-      window.location.href = resJson.redirect;
-    }  
+  if (!res.ok || resJson.status === "error") {
+    mensajeError.textContent = resJson.message || "Credenciales incorrectas";
+    mensajeError.style.display = "block";
+    return;
+  }
+
+  if (resJson.redirect) {
+    window.location.href = resJson.redirect;
+  }
 });

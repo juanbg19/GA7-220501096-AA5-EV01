@@ -4,28 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> registro </title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/test.css">
     <script src="/registrar.js" defer></script>
 
 </head>
 
 <body>
     <main>
-        <div class="form-container">
-            <h1>Crear cuenta</h1>
-            <p>Crear cuenta </p>
-            <form id="registro-form">
-                <label for="user" class="sr-only">Usuario</label>
-                <input type="text" name="user" id="user" placeholder="Ingresa tu usuario">
-                <label for="email" class="sr-only">Email</label>
-                <input type="email" name="email" id="email" placeholder="Ingresa tu correo">
-                <label for="password" class="sr-only">Contraseña</label>
-                <input type="password" name="password" id="password" placeholder=" Ingresa Contraseña">
-                <button type="submit"> Registrar</button>
-                <br>
-                <p class="error"> Validar usuario </p>
-            </form>
-            <p>Ya tienes cuenta? - <a href="/"> iniciar sesión</a></p>
+        <div class="center-content">
+            <div class="form-container">
+                <h1>Crear cuenta</h1>
+                <p>Crear cuenta </p>
+                <form id="registro-form">
+                    <label for="usuario" class="sr-only">Usuario</label>
+                    <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu usuario">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Ingresa tu correo">
+                    <label for="contraseña" class="sr-only">Contraseña</label>
+                    <input type="password" name="contraseña" id="contraseña" placeholder=" Ingresa Contraseña">
+                    <button type="submit"> Registrar</button>
+                    <br>
+                    <p class="error"> Validar información </p>
+                </form>
+                <p>Ya tienes cuenta? - <a href="/app/pages/login.html"> iniciar sesión</a></p>
+            </div>
         </div>
     </main>
     
